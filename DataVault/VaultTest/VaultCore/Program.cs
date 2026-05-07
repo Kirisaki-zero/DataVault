@@ -154,25 +154,30 @@ public sealed class AesCbcEngine : IDisposable
         aes.Key          = _key;
         aes.IV           = iv;
 
-        await using var srcStream   = new FileStream(sourcePath, FileMode.Open,
+        await using var srcStream = new FileStream(sourcePath, FileMode.Open,
             FileAccess.Read, FileShare.None, BufferSize, useAsync: true);
-        await using var vaultStream = new FileStream(vaultPath, FileMode.Create,
-            FileAccess.Write, FileShare.None, BufferSize, useAsync: true);
 
-        // Tulis IV 16 byte di kepala file
-        await vaultStream.WriteAsync(iv, ct);
+        // Blok using terpisah agar vaultStream tertutup sebelum hash dihitung
+        {
+            await using var vaultStream = new FileStream(vaultPath, FileMode.Create,
+                FileAccess.Write, FileShare.None, BufferSize, useAsync: true);
 
-        using var cryptoStream = new CryptoStream(
-            vaultStream, aes.CreateEncryptor(), CryptoStreamMode.Write);
+            // Tulis IV 16 byte di kepala file
+            await vaultStream.WriteAsync(iv, ct);
 
-        var buffer = new byte[BufferSize];
-        int bytesRead;
-        while ((bytesRead = await srcStream.ReadAsync(buffer, ct)) > 0)
-            await cryptoStream.WriteAsync(buffer.AsMemory(0, bytesRead), ct);
+            using var cryptoStream = new CryptoStream(
+                vaultStream, aes.CreateEncryptor(), CryptoStreamMode.Write);
 
-        await cryptoStream.FlushFinalBlockAsync(ct);
-        await vaultStream.FlushAsync(ct);
+            var buffer = new byte[BufferSize];
+            int bytesRead;
+            while ((bytesRead = await srcStream.ReadAsync(buffer, ct)) > 0)
+                await cryptoStream.WriteAsync(buffer.AsMemory(0, bytesRead), ct);
 
+            await cryptoStream.FlushFinalBlockAsync(ct);
+            await vaultStream.FlushAsync(ct);
+        } // vaultStream ditutup di sini
+
+        // Hitung hash setelah file sepenuhnya tertutup
         string hash = await ComputeFileHashAsync(vaultPath, ct);
         return (vaultPath, iv, hash);
     }
