@@ -1,0 +1,3 @@
+Ini adalah data rahasia yang akan dienkripsi.
+Baris kedua berisi informasi sensitif.
+AES-256-CBC dengan akselerasi hardware ARM64/x64.

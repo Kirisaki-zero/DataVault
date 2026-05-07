@@ -1,0 +1,15 @@
+D:\Kuliah\KDI\DataVault\VaultTest\VaultCore\bin\Debug\net9.0\VaultCore.exe
+D:\Kuliah\KDI\DataVault\VaultTest\VaultCore\bin\Debug\net9.0\VaultCore.deps.json
+D:\Kuliah\KDI\DataVault\VaultTest\VaultCore\bin\Debug\net9.0\VaultCore.runtimeconfig.json
+D:\Kuliah\KDI\DataVault\VaultTest\VaultCore\bin\Debug\net9.0\VaultCore.dll
+D:\Kuliah\KDI\DataVault\VaultTest\VaultCore\bin\Debug\net9.0\VaultCore.pdb
+D:\Kuliah\KDI\DataVault\VaultTest\VaultCore\obj\Debug\net9.0\VaultCore.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kuliah\KDI\DataVault\VaultTest\VaultCore\obj\Debug\net9.0\VaultCore.AssemblyInfoInputs.cache
+D:\Kuliah\KDI\DataVault\VaultTest\VaultCore\obj\Debug\net9.0\VaultCore.AssemblyInfo.cs
+D:\Kuliah\KDI\DataVault\VaultTest\VaultCore\obj\Debug\net9.0\VaultCore.csproj.CoreCompileInputs.cache
+D:\Kuliah\KDI\DataVault\VaultTest\VaultCore\obj\Debug\net9.0\VaultCore.sourcelink.json
+D:\Kuliah\KDI\DataVault\VaultTest\VaultCore\obj\Debug\net9.0\VaultCore.dll
+D:\Kuliah\KDI\DataVault\VaultTest\VaultCore\obj\Debug\net9.0\refint\VaultCore.dll
+D:\Kuliah\KDI\DataVault\VaultTest\VaultCore\obj\Debug\net9.0\VaultCore.pdb
+D:\Kuliah\KDI\DataVault\VaultTest\VaultCore\obj\Debug\net9.0\VaultCore.genruntimeconfig.cache
+D:\Kuliah\KDI\DataVault\VaultTest\VaultCore\obj\Debug\net9.0\ref\VaultCore.dll
